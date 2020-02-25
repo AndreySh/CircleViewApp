@@ -17,6 +17,7 @@ import java.lang.Integer.min
 class MainActivity : AppCompatActivity() {
 
     private val REQUEST_PICK = 1
+    // TODO: Not used
     val file : File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_PICK && resultCode == Activity.RESULT_OK) {
+            // TODO: Bad practice to use '!!'. It is better to use '?.'.
+            // TODO: Leads to crash
             val selectedFile = data!!.data
             circleView.setImageBitmap(selectedFile)
         }
